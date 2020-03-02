@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>top-news</ion-title>
+    <ion-title>Top News</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size=12 size-lg=3 size-md=4 size-sm=6 size-xs=12  *ngFor="let item of [1,1,1,1,1,1,1]">
 
+        <ion-card>
+            <ion-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Vista_Aerea_del_Cristo_de_la_Concordia.jpg/1020px-Vista_Aerea_del_Cristo_de_la_Concordia.jpg"></ion-img>
+            <ion-card-header>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
