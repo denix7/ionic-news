@@ -8,45 +8,65 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'top-news',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../top-news/top-news.module').then(m => m.TopNewsPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'headlines',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../headlines/headlines.module').then(m => m.HeadlinesPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'sources',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../sources/sources.module').then(m => m.SourcesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'favorites',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../favorites/favorites.module').then(m => m.FavoritesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'settings',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../settings/settings.module').then(m => m.SettingsPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/top-news',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/top-news',
     pathMatch: 'full'
   }
 ];
