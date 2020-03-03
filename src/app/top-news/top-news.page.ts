@@ -14,9 +14,20 @@ export class TopNewsPage implements OnInit {
 
   ngOnInit()
   {
-    this.newsServices.getData('top-headlines?country=us&')
-      .subscribe(data => {
-        this.news = data.articles;
-      })
+    this.getNews();
+  }
+
+  getNews()
+  {
+      this.newsServices.getData('top-headlines?country=us&')
+        .subscribe(data => {
+          this.news = data.articles;
+      });
+  }
+
+  doRefresh(event)
+  {
+    this.getNews();
+    event.target.complete();
   }
 }
