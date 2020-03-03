@@ -28,10 +28,13 @@ export class NewsService {
   getData(url) : Observable<any>
   {
     this.showLoading();
-    return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}`)
+    return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}&language=es`)
       .pipe(
         tap(value => {
-        this.loading.dismiss();
+          if(this.loading)
+          {
+            this.loading.dismiss();
+          }
       }));
   }
 }

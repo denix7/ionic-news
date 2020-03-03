@@ -19,7 +19,7 @@ export class TopNewsPage implements OnInit {
 
   getNews()
   {
-      this.newsServices.getData('top-headlines?country=us&')
+      this.newsServices.getData('everything?q=noticia&')
         .subscribe(data => {
           this.news = data.articles;
       });
