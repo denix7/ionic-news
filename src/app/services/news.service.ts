@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LoadingController } from '@ionic/angular';
+
+import { tap } from "rxjs/operators";
 
 const apiKey = environment.apiKey;
 const {apiUrl} = environment;
@@ -10,11 +13,25 @@ const {apiUrl} = environment;
   providedIn: 'root'
 })
 export class NewsService {
+  loading;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, public loadingController: LoadingController) { }
+
+  async showLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 5000
+    });
+    return this.loading.present();
+  }
 
   getData(url) : Observable<any>
   {
-    return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}`);
+    this.showLoading();
+    return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}`)
+      .pipe(
+        tap(value => {
+        this.loading.dismiss();
+      }));
   }
 }
