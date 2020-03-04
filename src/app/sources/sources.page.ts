@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-sources',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SourcesPage implements OnInit {
 
-  constructor() { }
+  sources:any [];
+
+  constructor(private newsService:NewsService) { }
 
   ngOnInit() {
+    this.getSources();
+  }
+
+  getSources()
+  {
+    this.newsService.getData('sources?')
+      .subscribe(data => {
+        console.warn(data);
+        this.sources = data.sources;
+      })
   }
 
 }
