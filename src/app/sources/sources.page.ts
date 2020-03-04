@@ -9,6 +9,7 @@ import { NewsService } from '../services/news.service';
 export class SourcesPage implements OnInit {
 
   sources:any [];
+  term = '';
 
   constructor(private newsService:NewsService) { }
 
@@ -18,11 +19,11 @@ export class SourcesPage implements OnInit {
 
   getSources()
   {
-    this.newsService.getData('sources?')
+    this.newsService.getDataEnglish('sources?')
       .subscribe(data => {
         console.warn(data);
         this.sources = data.sources;
-      })
+      });
   }
 
 }

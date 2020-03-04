@@ -1,12 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>sources</ion-title>
+    <ion-title>Sources</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)] = "term"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-row>
-    <ion-col size=12 size-md="6" *ngFor="let source of sources">
+<ion-content padding>
+  <ion-row *ngIf="sources">
+    <ion-col size=12 size-md="6" *ngFor="let source of sources | search: term">
       <ion-list>
         <ion-item>
           <ion-label>

@@ -37,4 +37,15 @@ export class NewsService {
           }
       }));
   }
+
+  getDataEnglish(url) : Observable<any>
+  {
+    this.showLoading();
+    return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}`)
+      .pipe(
+        tap(value => {
+          this.loading.dismiss();
+        })
+      )
+  }
 }
