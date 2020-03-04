@@ -14,6 +14,12 @@
       {{article.description}}
     </ion-card-content>
 
+    <ion-card-content *ngIf="article.description">
+      {{article.content}}
+    </ion-card-content>
+
+    <ion-button (click)="goToLink()">ver noticia</ion-button>
+
     <ion-item>
       <ion-label>{{article.source.name}}</ion-label>
     </ion-item>

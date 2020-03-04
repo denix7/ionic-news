@@ -10,6 +10,13 @@ export class ArticleComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.warn(this.article)
+  }
+
+  goToLink()
+  {
+    window.location.href = `${this.article.url}`;
+  }
 
 }
